@@ -1,11 +1,23 @@
 "use client";
-import { assets } from "@/public/assets/assets";
+
+import { assets } from "../../public/assets/assets.js";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function Navbar() {
+  const [isScroll,setIsScroll]=useState(false)
   const slideRef = useRef();
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (scrollY > 50) {
+        setIsScroll(true)
+      } else {
+        setIsScroll(false)
+      }
+    })
+  },[])
 
   const openMenu = () => {
     slideRef.current.style.transform = 'translateX(-16rem)';
@@ -15,7 +27,11 @@ function Navbar() {
   }
   return (
     <>
-      <nav className=" w-full fixed px-5 lg:px-8 xl:px-[8%] py-4  flex items-center justify-between  z-50">
+      <nav
+        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4  flex items-center justify-between  z-50 ${
+          isScroll ? "bbg-white bg-opacity-50 backdrop-blur-lg shadow-sm " : ""
+        }`}
+      >
         <Link href={"#top"}>
           <Image
             src={assets.nitik}
@@ -24,7 +40,11 @@ function Navbar() {
           />
         </Link>
 
-        <ul className=" hidden  md:flex items-center justify-between gap-6 lg:gap-8  rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50">
+        <ul
+          className={`hidden  md:flex items-center justify-between gap-6 lg:gap-8  rounded-full px-12 py-3  ${
+            isScroll ? "" : "bg-white shadow-sm bg-opacity-50"
+          }`}
+        >
           <li>
             {" "}
             <Link href={"#top"} className=" font-outfit ">
@@ -76,33 +96,43 @@ function Navbar() {
 
         {/* Mobile ----------------------------------------------------- */}
 
-        <ul ref={slideRef} className=" flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64  bottom-0 w-64 z-50 h-screen bg-rose-300  transition duration-500 ">
-
+        <ul
+          ref={slideRef}
+          className=" flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64  bottom-0 w-64 z-50 h-screen bg-rose-300  transition duration-500 "
+        >
           <div className=" absolute rigght-6 top-6" onClick={closeMenu}>
-            <Image src={assets.close_black} alt=" " className=" cursor-pointer w-5"/>
+            <Image
+              src={assets.close_black}
+              alt=" "
+              className=" cursor-pointer w-5"
+            />
           </div>
           <li>
             {" "}
-            <Link href={"#top"} className=" font-outfit "  onClick={closeMenu}>
+            <Link href={"#top"} className=" font-outfit " onClick={closeMenu}>
               Home
             </Link>
           </li>
           <li>
-            <Link href={"#about"} className=" font-outfit"  onClick={closeMenu}>
+            <Link href={"#about"} className=" font-outfit" onClick={closeMenu}>
               About me
             </Link>
           </li>
           <li>
-            <Link href={"#service"} className="font-outfit"  onClick={closeMenu}>
+            <Link href={"#service"} className="font-outfit" onClick={closeMenu}>
               Service
             </Link>
           </li>
           <li>
             {" "}
-            <Link href={"#work"}  onClick={closeMenu}>My Work</Link>
+            <Link href={"#work"} onClick={closeMenu}>
+              My Work
+            </Link>
           </li>
           <li>
-            <Link href={"#contect"}  onClick={closeMenu}>Contect Me</Link>
+            <Link href={"#contact"} onClick={closeMenu}>
+              Contect Me
+            </Link>
           </li>
         </ul>
       </nav>
