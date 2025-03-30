@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
-function Navbar() {
+function Navbar({darkMode,setDarkMode}) {
   const [isScroll,setIsScroll]=useState(false)
   const slideRef = useRef();
 
@@ -27,10 +27,18 @@ function Navbar() {
   }
   return (
     <>
+      {!darkMode && (
+        <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
+          <Image src={assets.header_bg_color} alt="" className="w-full" />
+        </div>
+      )}
+      {/* <div className=" fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
+        <Image src={assets.header_bg_color} alt="" className=" w-full"/>
+      </div> */}
       <nav
         className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4  flex items-center justify-between  z-50 ${
           isScroll ? "bbg-white bg-opacity-50 backdrop-blur-lg shadow-sm " : ""
-        }`}
+        } ${darkMode?"text-gray-700":""}`}
       >
         <Link href={"#top"}>
           <Image
@@ -43,7 +51,7 @@ function Navbar() {
         <ul
           className={`hidden  md:flex items-center justify-between gap-6 lg:gap-8  rounded-full px-12 py-3  ${
             isScroll ? "" : "bg-white shadow-sm bg-opacity-50"
-          }`}
+          } `}
         >
           <li>
             {" "}
@@ -66,14 +74,18 @@ function Navbar() {
             <Link href={"#work"}>My Work</Link>
           </li>
           <li>
-            <Link href={"#contect"}>Contect Me</Link>
+            <Link href={"#contact"}>Contect Me</Link>
           </li>
         </ul>
 
         <div className=" flex items-center gap-4">
-          <button>
+          <button onClick={() => setDarkMode((prev) => !prev)}>
             {" "}
-            <Image src={assets.moon_icon} alt="moon" className=" w-6" />
+            <Image
+              src={darkMode ? assets.sun_icon : assets.moon_icon}
+              alt="moon"
+              className=" w-6"
+            />
           </button>
           <Link
             href={"/"}

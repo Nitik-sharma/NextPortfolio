@@ -5,6 +5,7 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // ✅ Keep only this
   theme: {
     extend: {
       colors: {
@@ -21,41 +22,22 @@ export default {
       },
       keyframes: {
         moveHorizontal: {
-          "0%": {
-            transform: "translateX(-50%) translateY(-10%)",
-          },
-          "50%": {
-            transform: "translateX(50%) translateY(10%)",
-          },
-          "100%": {
-            transform: "translateX(-50%) translateY(-10%)",
-          },
+          "0%": { transform: "translateX(-50%) translateY(-10%)" },
+          "50%": { transform: "translateX(50%) translateY(10%)" },
+          "100%": { transform: "translateX(-50%) translateY(-10%)" },
         },
         moveInCircle: {
-          "0%": {
-            transform: "rotate(0deg)",
-          },
-          "50%": {
-            transform: "rotate(180deg)",
-          },
-          "100%": {
-            transform: "rotate(360deg)",
-          },
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(180deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
         moveVertical: {
-          "0%": {
-            transform: "translateY(-50%)",
-          },
-          "50%": {
-            transform: "translateY(50%)",
-          },
-          "100%": {
-            transform: "translateY(-50%)",
-          },
+          "0%": { transform: "translateY(-50%)" },
+          "50%": { transform: "translateY(50%)" },
+          "100%": { transform: "translateY(-50%)" },
         },
       },
     },
   },
-
   plugins: [],
 };
