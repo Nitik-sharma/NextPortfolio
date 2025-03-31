@@ -36,6 +36,9 @@ import send_icon from './send-icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
 import nitik from './Nitik ..png';
+import nitik_logo from './Circular_User_Image.png';
+import nitik_Image from './User_Image.png';
+
 
 
 export const assets = {
@@ -77,6 +80,9 @@ export const assets = {
     right_arrow_bold,
     right_arrow_bold_dark,
     nitik,
+    nitik_logo,
+    nitik_Image
+    
     
 };
 
@@ -85,21 +91,25 @@ export const workData = [
         title: 'Frontend project',
         description: 'Web Design',
         bgImage: '/Tour.jpeg',
+        liveLink:"https://react-tour-app-sooty.vercel.app/"
     },
     {
          title: 'Frontend project',
         description: 'Web Design',
         bgImage: '/Crypto.jpg',
+        liveLink:"https://crypto-dasboard.vercel.app/"
     },
     {
          title: 'Frontend project',
         description: 'Web Design',
         bgImage: '/Gym.jpeg',
+        liveLink:"https://fitclub-iota.vercel.app/"
     },
     {
         title: 'Frontend project',
         description: 'Web Design',
         bgImage: '/E-com.jpeg',
+        liveLink:"https://react-e-commarce-two.vercel.app/"
     },
 ]
 export const serviceData = [

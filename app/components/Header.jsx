@@ -20,7 +20,7 @@ function Header({ darkMode, setDarkMode }) {
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
       >
         <Image
-          src={assets.profile_img}
+          src={assets.nitik_logo}
           className=" w-28 cursor-pointer mr-14 mt-6"
           alt=""
         />
@@ -68,12 +68,12 @@ function Header({ darkMode, setDarkMode }) {
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          href="/public/assets/public/sample-resume.pdf"
+          href="/assets/public/Nitik Resume 1.pdf"
           download
           className=" flex gap-3 items-center px-10 py-3 border border-gray-500  rounded-full  "
         >
           My Resume{" "}
-          <Image src={assets.right_arrow_white} alt="" className=" w-4" />
+          <Image src={darkMode?assets.right_arrow_bold_dark:assets.download_icon} alt="" className=" w-4" />
         </motion.a>
       </div>
     </div>

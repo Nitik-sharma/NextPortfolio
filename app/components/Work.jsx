@@ -54,7 +54,10 @@ function Work() {
                 <p className="  text-sm text-gray-700">{project.description}</p>
               </div>
               <div className=" border border-gray-500  rounded-full w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition-y-2 duration-500">
-                <Image src={assets.send_icon} alt="" className="w-6" />
+                <a href={project.liveLink}>
+                  {" "}
+                  <Image src={assets.send_icon} alt="" className="w-6" />
+                </a>
               </div>
             </div>
           </div>
