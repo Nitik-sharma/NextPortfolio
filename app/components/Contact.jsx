@@ -105,7 +105,7 @@ function Contact({darkMode,setDarkMode}) {
           type="submit"
           className={`py-3 px-6 w-max flex items-center justify-between gap-2  text-white rounded-full mx-auto  duration-500 ${
             darkMode
-              ? "bg-[#11001F] hover:bg-[#a877d1] duration-700"
+              ? "bg-[#11001F] hover:bg-[#a877d1] duration-700 border border-white"
               : "bg-black/80 hover:bg-black"
           }`}
         >
