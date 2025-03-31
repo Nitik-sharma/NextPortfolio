@@ -38,7 +38,7 @@ function Navbar({darkMode,setDarkMode}) {
       <nav
         className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4  flex items-center justify-between  z-50 ${
           isScroll ? "bbg-white bg-opacity-50 backdrop-blur-lg shadow-sm " : ""
-        } ${darkMode?"text-gray-700":""}`}
+        } ${darkMode ? "bg-[#11001F] text-white" : ""}`}
       >
         <Link href={"#top"}>
           <Image
@@ -49,9 +49,14 @@ function Navbar({darkMode,setDarkMode}) {
         </Link>
 
         <ul
-          className={`hidden  md:flex items-center justify-between gap-6 lg:gap-8  rounded-full px-12 py-3  ${
-            isScroll ? "" : "bg-white shadow-sm bg-opacity-50"
-          } `}
+          className={`hidden md:flex items-center justify-between gap-6 lg:gap-8 rounded-full px-12 py-3 
+  ${
+    isScroll
+      ? ""
+      : darkMode
+      ? "bg-[#11001F] text-white shadow-sm bg-opacity-50"
+      : "bg-white shadow-sm bg-opacity-50"
+  }`}
         >
           <li>
             {" "}
@@ -89,16 +94,22 @@ function Navbar({darkMode,setDarkMode}) {
           </button>
           <Link
             href={"/"}
-            className=" hidden md:flex items-center gap-3 px-10 py-3 border border-gray-500 rounded-full ml-4"
+            className={`hidden md:flex items-center gap-3 px-10 py-3 border border-gray-500 rounded-full ml-4 ${
+              darkMode ? "text-gray-200 border-white" : ""
+            }`}
           >
             Contact{" "}
-            <Image src={assets.arrow_icon} alt="contact" className=" w-3" />
+            <Image
+              src={darkMode ? assets.arrow_icon_dark : assets.arrow_icon}
+              alt="contact"
+              className=" w-3"
+            />
           </Link>
 
           <button>
             {" "}
             <Image
-              src={assets.menu_black}
+              src={darkMode ? assets.menu_white : assets.menu_black}
               alt="moon"
               className=" w-6 block md:hidden ml-3"
               onClick={openMenu}
@@ -110,11 +121,13 @@ function Navbar({darkMode,setDarkMode}) {
 
         <ul
           ref={slideRef}
-          className=" flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64  bottom-0 w-64 z-50 h-screen bg-rose-300  transition duration-500 "
+          className={`flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 bottom-0 w-64 z-50 h-screen  transition duration-500 ${
+            darkMode ? "bg-[#11001F] text-white" : "bg-rose-300"
+          }`}
         >
           <div className=" absolute rigght-6 top-6" onClick={closeMenu}>
             <Image
-              src={assets.close_black}
+              src={darkMode ? assets.close_white : assets.close_black}
               alt=" "
               className=" cursor-pointer w-5"
             />
